@@ -7,7 +7,7 @@ public class Ingredient {
 	private float price;
 
 	public Ingredient(String name, float price) throws IngredentException {
-		if ((name == null) || (name.equals("")) || name.matches(".*\\d.*") || (price <= 0)) {
+		if ((name == null) || (name.trim().equals("")) || name.matches(".*\\d.*") || (price <= 0)) {
 			throw new IngredentException("Nevalidni sustavki");
 		}
 		this.name = name;

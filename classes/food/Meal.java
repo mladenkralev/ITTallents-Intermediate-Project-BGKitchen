@@ -14,7 +14,7 @@ public class Meal implements IMeal, Cloneable {
 	private boolean isVegan;
 
 	public Meal(String name) throws MealException {
-		if ((name == null) || (name.equals("")) || (name.matches(".*\\d.*"))) {
+		if ((name == null) || (name.trim().equals("")) || (name.matches(".*\\d.*"))) {
 			throw new MealException("Ne moga da suzdam takova bludo s tezi dani");
 		}
 		this.name = name;
