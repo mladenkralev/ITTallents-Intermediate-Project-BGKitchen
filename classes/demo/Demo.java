@@ -13,6 +13,7 @@ import exceptions.LogInException;
 import exceptions.MealException;
 import exceptions.MenuException;
 import exceptions.RegistrationException;
+import exceptions.SiteException;
 import interfaces.IMenu;
 
 public class Demo {
@@ -81,6 +82,9 @@ public class Demo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (LogInException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SiteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

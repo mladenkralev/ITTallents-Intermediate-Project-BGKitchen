@@ -7,13 +7,17 @@ import java.util.Set;
 import classes.food.*;
 import exceptions.LogInException;
 import exceptions.RegistrationException;
+import exceptions.SiteException;
 
 public class Site {
 	private String name;
 	private Map<String, User> users = new HashMap<String, User>();
 	private Menu menu;
 
-	public Site(String name) {
+	public Site(String name) throws SiteException {
+		if ((name == null) || (name.trim().equals(""))) {
+			throw new SiteException("The name for the site is invalid");
+		}
 		this.name = name;
 	}
 
@@ -37,18 +41,18 @@ public class Site {
 		}
 	}
 
-	public User logInUser(String userName, String password) throws LogInException{
-		if(users.containsKey(userName)){
+	public User logInUser(String userName, String password) throws LogInException {
+		if (users.containsKey(userName)) {
 			User login = users.get(userName);
-			if(login.checkPassword(password)){
+			if (login.checkPassword(password)) {
 				return login;
-			}else{
+			} else {
 				throw new LogInException("Wrong password or username");
 			}
-		}else{
+		} else {
 			throw new LogInException("Wrong password or username");
 		}
-		
+
 	}
 
 	private boolean isUserNameFree(String userName) {
