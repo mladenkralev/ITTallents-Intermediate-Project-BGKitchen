@@ -25,7 +25,7 @@ public class Site {
 		if (userName != null && userName.trim().length() > 0) {
 			if (isUserNameFree(userName)) {
 				if (password != null && password.trim().length() >= 6) {
-					if (email != null && email.trim().length() > 7 && email.contains("@")) {
+					if (email.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$")) {
 						users.put(userName, new User(userName, password, email));
 					} else {
 						throw new RegistrationException("Invalid email was entered");
