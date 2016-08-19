@@ -20,7 +20,7 @@ public class Site {
 		}
 		this.name = name;
 	}
-
+//user registration
 	public void registerUser(String userName, String password, String email) throws RegistrationException {
 		if (userName != null && userName.trim().length() > 0) {
 			if (isUserNameFree(userName)) {
