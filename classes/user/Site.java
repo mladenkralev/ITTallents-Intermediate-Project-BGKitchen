@@ -63,4 +63,8 @@ public class Site {
 		return true;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 }
