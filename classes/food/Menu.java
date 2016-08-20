@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import classes.comparator.PriceComparator;
 import exceptions.MenuException;
 import interfaces.IMenu;
 
@@ -57,10 +58,12 @@ public class Menu implements IMenu {
 	 * @see classes.food.IMenu#sortBy(classes.food.Creteria)
 	 */
 	@Override
-	public Set<Meal> sortBy(Creteria criteria) {
+	public Set<Meal> sortMealsBy(String menuCategory, Creteria criteria) {
 		Set<Meal> result = new TreeSet<Meal>(getComparator(criteria));
 		for (String key : menuList.keySet()) {
-			result.addAll(menuList.get(key));
+			if (menuCategory.equals(key)) {
+				result.addAll(menuList.get(key));
+			}
 		}
 		return result;
 
@@ -70,10 +73,10 @@ public class Menu implements IMenu {
 	private Comparator<Meal> getComparator(Creteria criteria) {
 		switch (criteria) {
 		case PRICE:
-			return (o1, o2) -> (int) (o1.getPrice() - o2.getPrice());
+			return new PriceComparator();
 
 		default:
-			return (o1, o2) -> (int) (o1.getPrice() - o2.getPrice());
+			return new PriceComparator();
 		}
 
 	}

@@ -12,6 +12,6 @@ public interface IMenu {
 
 	Set<Meal> getMealsFromCategory(String category) throws MenuException;
 
-	Set<Meal> sortBy(Creteria criteria);
+	Set<Meal> sortMealsBy(String menuCategory, Creteria criteria);
 
 }

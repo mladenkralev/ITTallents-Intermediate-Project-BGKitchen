@@ -19,7 +19,7 @@ import interfaces.IMenu;
 public class Demo {
 	public static void main(String[] args) {
 
-		try {	
+		try {
 			// menu
 			IMenu menu = new Menu();
 
@@ -33,38 +33,34 @@ public class Demo {
 			bobSnadenica.setVegan(false);
 
 			// meal second
-			Ingredient bobZaSupa = new Ingredient("bob", 1.5f);
+			Ingredient oriz = new Ingredient("bob", 1.5f);
 			Ingredient morkov = new Ingredient("morkov", 0.5f);
 
-			Meal bobChorba = new Meal(bobZaSupa.getName() + " s " + morkov.getName());
-			bobChorba.addIngredients(bobZaSupa);
-			bobChorba.addIngredients(morkov);
-			bobChorba.setVegan(true);
+			Meal orizSMorkov = new Meal(oriz.getName() + " s " + morkov.getName());
+			orizSMorkov.addIngredients(oriz);
+			orizSMorkov.addIngredients(morkov);
+			orizSMorkov.setVegan(true);
 
 			// adding in menu
-
 			menu.addMeal("Osnovno", bobSnadenica);
-			menu.addMeal("Supi", bobChorba);
+			menu.addMeal("Osnovno", orizSMorkov);
 
-			System.out.println("supi: " + menu.getMealsFromCategory("Supi"));
-			System.out.println("osnovni: " + menu.sortBy(Creteria.PRICE));
+			// System.out.println("supi: " + menu.getMealsFromCategory("Supi"));
+			System.out.println("osnovni: " + menu.sortMealsBy("Osnovno", Creteria.PRICE));
 
-			
 			// site
-			
-
 			Site site = new Site("bg kitchen", menu);
 			site.registerUser("goshot", "pecataetup", "asma@amsc.com");
-			
+
 			User me = site.logInUser("goshot", "pecataetup");
 			Cart myCart = (Cart) me.getCart();
 
-			myCart.addMeal(bobChorba);
+			myCart.addMeal(orizSMorkov);
 			myCart.addMeal(bobSnadenica);
-			
+
 			System.out.println("balanca e " + myCart.getBallance());
 			myCart.removeMeal(bobSnadenica);
-			
+
 			System.out.println("balanca e " + myCart.getBallance());
 			System.out.println(myCart.getMealsToOrder());
 
