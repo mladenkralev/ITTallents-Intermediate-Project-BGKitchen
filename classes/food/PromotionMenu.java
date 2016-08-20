@@ -14,6 +14,7 @@ public class PromotionMenu {
 	private List<Meal> promotionMenu = new ArrayList<Meal>();
 	private float sumOfMenu;
 	private IMenu menu;
+	private static int whichMeal = 0;
 
 	public PromotionMenu(IMenu menu) throws SiteException {
 		if(menu!=null){
@@ -35,7 +36,6 @@ public class PromotionMenu {
 
 	private Meal givePromotionMeal(String type) throws MenuException, SiteException {
 		Set<Meal> meals = menu.getMealsFromCategory(type);
-		int whichMeal = 0;
 		if (whichMeal < meals.size() - 1) {
 			whichMeal++;
 		} else {
