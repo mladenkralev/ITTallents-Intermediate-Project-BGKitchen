@@ -1,14 +1,10 @@
 package classes.user;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import classes.food.*;
+
+import classes.food.PromotionMenu;
 import exceptions.LogInException;
-import exceptions.MenuException;
 import exceptions.RegistrationException;
 import exceptions.SiteException;
 import interfaces.IMenu;

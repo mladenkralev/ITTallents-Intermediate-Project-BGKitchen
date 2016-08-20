@@ -14,7 +14,9 @@ public class Menu implements IMenu {
 	private Map<String, Set<Meal>> menuList = new HashMap<String, Set<Meal>>();
 	private Set<Ingredient> ingredients = new HashSet<Ingredient>();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see classes.food.IMenu#addMeal(java.lang.String, classes.food.Meal)
 	 */
 	@Override
@@ -31,7 +33,9 @@ public class Menu implements IMenu {
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see classes.food.IMenu#getMealsFromCategory(java.lang.String)
 	 */
 	@Override
@@ -47,7 +51,9 @@ public class Menu implements IMenu {
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see classes.food.IMenu#sortBy(classes.food.Creteria)
 	 */
 	@Override
@@ -71,4 +77,10 @@ public class Menu implements IMenu {
 		}
 
 	}
+
+	@Override
+	public String toString() {
+		return "Menu [menuList=" + menuList + "]";
+	}
+
 }

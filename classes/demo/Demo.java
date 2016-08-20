@@ -19,12 +19,7 @@ import interfaces.IMenu;
 public class Demo {
 	public static void main(String[] args) {
 
-		try {
-
-			// site
-			Site site = new Site("bg kitchen");
-			site.registerUser("goshot", "pecataetup", "asma@amsc.com");
-
+		try {	
 			// menu
 			IMenu menu = new Menu();
 
@@ -54,6 +49,13 @@ public class Demo {
 			System.out.println("supi: " + menu.getMealsFromCategory("Supi"));
 			System.out.println("osnovni: " + menu.sortBy(Creteria.PRICE));
 
+			
+			// site
+			
+
+			Site site = new Site("bg kitchen", menu);
+			site.registerUser("goshot", "pecataetup", "asma@amsc.com");
+			
 			User me = site.logInUser("goshot", "pecataetup");
 			Cart myCart = (Cart) me.getCart();
 
