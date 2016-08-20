@@ -2,6 +2,7 @@ package classes.food;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import classes.user.Site;
@@ -14,7 +15,6 @@ public class PromotionMenu {
 	private List<Meal> promotionMenu = new ArrayList<Meal>();
 	private float sumOfMenu;
 	private IMenu menu;
-	private static int whichMeal = 0;
 
 	public PromotionMenu(IMenu menu) throws SiteException {
 		if(menu!=null){
@@ -36,13 +36,9 @@ public class PromotionMenu {
 
 	private Meal givePromotionMeal(String type) throws MenuException, SiteException {
 		Set<Meal> meals = menu.getMealsFromCategory(type);
-		if (whichMeal < meals.size() - 1) {
-			whichMeal++;
-		} else {
-			whichMeal = 1;
-		}
+		 int whichMeal = new Random().nextInt(meals.size());
+		 int thisMeal = 0;
 		for (Meal meal : meals) {
-			int thisMeal = 1;
 			if (whichMeal == thisMeal) {
 				try {
 					return (Meal) meal.clone();

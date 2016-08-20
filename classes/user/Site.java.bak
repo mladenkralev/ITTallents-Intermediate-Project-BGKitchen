@@ -2,7 +2,8 @@ package classes.user;
 
 import java.util.HashMap;
 import java.util.Map;
-import classes.food.*;
+
+import classes.food.PromotionMenu;
 import exceptions.LogInException;
 import exceptions.RegistrationException;
 import exceptions.SiteException;
@@ -33,7 +34,7 @@ public class Site {
 	public void generateDailyMenu() throws SiteException{
 		this.promoMenu = new PromotionMenu(this.menu);
 	}
-
+//user registration
 	public void registerUser(String userName, String password, String email) throws RegistrationException {
 		if (userName != null && userName.trim().length() > 0) {
 			if (isUserNameFree(userName)) {
