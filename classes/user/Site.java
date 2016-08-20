@@ -1,24 +1,42 @@
 package classes.user;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import classes.food.*;
 import exceptions.LogInException;
+import exceptions.MenuException;
 import exceptions.RegistrationException;
 import exceptions.SiteException;
+import interfaces.IMenu;
 
 public class Site {
 	private String name;
 	private Map<String, User> users = new HashMap<String, User>();
-	private Menu menu;
+	private IMenu menu;
+	private PromotionMenu promoMenu;
 
-	public Site(String name) throws SiteException {
+	public Site(String name, IMenu menu) throws SiteException {
+		if(menu!=null){
+			this.menu=menu;
+		}
+		if(name!=null && name.trim().length()>0){
 		if ((name == null) || (name.trim().equals(""))) {
 			throw new SiteException("The name for the site is invalid");
 		}
 		this.name = name;
+		}else{
+			throw new SiteException("Invalid name was given for this site");
+		}
+	}
+	
+	
+
+	public void generateDailyMenu() throws SiteException{
+		this.promoMenu = new PromotionMenu(this.menu);
 	}
 //user registration
 	public void registerUser(String userName, String password, String email) throws RegistrationException {
@@ -62,6 +80,18 @@ public class Site {
 
 		return true;
 	}
+	
+
+	public PromotionMenu getPromoMenu() {
+		return promoMenu;
+	}
+
+
+
+	public IMenu getMenu() {
+		return menu;
+	}
+
 
 	public String getName() {
 		return name;
