@@ -50,6 +50,7 @@ public class PromotionMenu {
 					throw new SiteException("Somethin went wrong while preparing your meal", e);
 				}
 			}
+			thisMeal++;
 		}
 		return null;
 
