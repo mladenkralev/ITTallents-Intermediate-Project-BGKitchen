@@ -1,5 +1,5 @@
 package order;
 
 public enum Status {
-	ORDERED, ON_OTS_WAY, DELIVERED
+	ORDERED, ON_ITS_WAY, DELIVERED
 }

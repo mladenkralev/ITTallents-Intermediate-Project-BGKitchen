@@ -7,6 +7,8 @@ import comaparator.PriceComparator;
 import food.ingredient.IngredentException;
 import food.ingredient.Ingredient;
 import food.meal.Meal;
+import order.Order;
+import order.OrderException;
 
 public class Cart implements ICart {
 	private float ballance;
@@ -73,4 +75,9 @@ public class Cart implements ICart {
 
 	}
 
+
+	public Order giveMeOrder() throws OrderException {
+		return new Order(this);
+	}
+	
 }

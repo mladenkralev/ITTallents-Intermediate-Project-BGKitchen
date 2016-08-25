@@ -1,9 +1,7 @@
 package user.users;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
 import cart.Cart;
 import cart.ICart;
@@ -31,7 +29,8 @@ public class User {
 
 	public void order() throws UserException {
 		try {
-			allOrdersHistory.add(new Order(this.cart));
+			Order order = this.cart.giveMeOrder();
+			allOrdersHistory.add(order);
 			this.cart.removeAll();
 		} catch (OrderException e) {
 			throw new UserException("The order is unacceptable");

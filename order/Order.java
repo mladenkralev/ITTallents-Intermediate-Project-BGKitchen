@@ -33,7 +33,7 @@ public class Order implements IOrder {
 	 */
 	@Override
 	public void readyForTravelling() {
-		this.status = Status.ON_OTS_WAY;
+		this.status = Status.ON_ITS_WAY;
 	}
 
 	/*
