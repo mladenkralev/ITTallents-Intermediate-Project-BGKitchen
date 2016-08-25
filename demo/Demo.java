@@ -16,6 +16,7 @@ import user.site.RegistrationException;
 import user.site.Site;
 import user.site.SiteException;
 import user.users.User;
+import user.users.UserException;
 
 public class Demo {
 	public static void main(String[] args) {
@@ -86,21 +87,29 @@ public class Demo {
 			myCart.addMeal(orizSMorkov);
 			myCart.addMeal(bobSnadenica);
 
-			//System.out.println("balanca e " + myCart.getBallance());
+			System.out.println("balanca e " + myCart.getBallance());
 			myCart.removeMeal(bobSnadenica);
 
-			//System.out.println("balanca e " + myCart.getBallance());
-		//	System.out.println(myCart.getMealsToOrder());
+			System.out.println("balanca e " + myCart.getBallance());
+			System.out.println(myCart.getMealsToOrder());
 			
+			me.order();
+			System.out.println(me.giveMeAllOrders());
+			myCart.addMeal(orizSMorkov);
+			myCart.addMeal(bobSnadenica);
+			me.order();
+			System.out.println(me.giveMeAllOrders());
+			System.out.println(me.getCart().getBallance());
+
 			
-			
-			site.generateDailyMenu();
-			PromotionMenu menuFirst = site.getPromoMenu();
-			System.out.println(menuFirst);
-			
-			site.generateDailyMenu();
-			PromotionMenu menuSecond = site.getPromoMenu();
-			System.out.println(menuSecond);
+//			
+//			site.generateDailyMenu();
+//			PromotionMenu menuFirst = site.getPromoMenu();
+//			System.out.println(menuFirst);
+//			
+//			site.generateDailyMenu();
+//			PromotionMenu menuSecond = site.getPromoMenu();
+//			System.out.println(menuSecond);
 
 		} catch (IngredentException e) {
 			// TODO Auto-generated catch block
@@ -121,6 +130,9 @@ public class Demo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SiteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
