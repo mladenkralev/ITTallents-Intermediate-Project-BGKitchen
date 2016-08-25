@@ -60,7 +60,7 @@ public class Menu implements IMenu {
 	 */
 	@Override
 	public Set<Meal> sortMealsBy(String menuCategory, Creteria criteria) {
-		Set<Meal> result = new TreeSet<Meal>(getComparator(criteria));
+		Set<Meal> result = new TreeSet<Meal>(new PriceComparator());
 		for (String key : menuList.keySet()) {
 			if (menuCategory.equals(key)) {
 				result.addAll(menuList.get(key));
@@ -70,17 +70,17 @@ public class Menu implements IMenu {
 
 	}
 
-	// in case we want to add other criteria
-	private Comparator<Meal> getComparator(Creteria criteria) {
-		switch (criteria) {
-		case PRICE:
-			return new PriceComparator();
-
-		default:
-			return new PriceComparator();
-		}
-
-	}
+//	// in case we want to add other criteria
+//	private Comparator<Meal> getComparator(Creteria criteria) {
+//		switch (criteria) {
+//		case PRICE:
+//			return new PriceComparator();
+//
+//		default:
+//			return new PriceComparator();
+//		}
+//
+//	}
 
 	@Override
 	public String toString() {
