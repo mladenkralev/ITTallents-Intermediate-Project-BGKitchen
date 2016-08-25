@@ -1,7 +1,7 @@
-package classes.user;
+package user.users;
 
-import classes.cart.Cart;
-import interfaces.ICart;
+import cart.Cart;
+import cart.ICart;
 
 public class User {
 	private String userName;

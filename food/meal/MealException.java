@@ -1,4 +1,4 @@
-package exceptions;
+package food.meal;
 
 public class MealException extends Exception {
 

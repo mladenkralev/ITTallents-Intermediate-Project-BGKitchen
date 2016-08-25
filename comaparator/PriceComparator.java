@@ -1,7 +1,8 @@
-package classes.comparator;
+package comaparator;
 
 import java.util.Comparator;
-import classes.food.Meal;
+
+import food.meal.Meal;
 public class PriceComparator implements Comparator<Meal>{
 
 	@Override

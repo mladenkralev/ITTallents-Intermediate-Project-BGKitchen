@@ -1,14 +1,15 @@
-package classes.food;
+package food.promo;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import classes.user.Site;
-import exceptions.MenuException;
-import exceptions.SiteException;
-import interfaces.IMenu;
+import food.meal.Meal;
+import food.menu.IMenu;
+import food.menu.MenuException;
+import user.site.Site;
+import user.site.SiteException;
 
 public class PromotionMenu {
 	private static final float PROMOTION_PERCENT = 0.75f;

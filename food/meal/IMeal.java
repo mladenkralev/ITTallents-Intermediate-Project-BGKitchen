@@ -1,7 +1,7 @@
-package interfaces;
+package food.meal;
 
-import classes.food.Ingredient;
-import exceptions.IngredentException;
+import food.ingredient.IngredentException;
+import food.ingredient.Ingredient;
 
 public interface IMeal {
 

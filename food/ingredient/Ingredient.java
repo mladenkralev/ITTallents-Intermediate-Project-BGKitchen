@@ -1,6 +1,4 @@
-package classes.food;
-
-import exceptions.IngredentException;
+package food.ingredient;
 
 public class Ingredient {
 	private String name;

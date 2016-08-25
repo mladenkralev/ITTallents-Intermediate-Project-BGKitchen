@@ -1,20 +1,21 @@
-package classes.demo;
+package demo;
 
-import classes.cart.Cart;
-import classes.food.Creteria;
-import classes.food.Ingredient;
-import classes.food.Meal;
-import classes.food.Menu;
-import classes.user.Site;
-import classes.user.User;
-import exceptions.CartException;
-import exceptions.IngredentException;
-import exceptions.LogInException;
-import exceptions.MealException;
-import exceptions.MenuException;
-import exceptions.RegistrationException;
-import exceptions.SiteException;
-import interfaces.IMenu;
+import cart.Cart;
+import cart.CartException;
+import food.creteria.Creteria;
+import food.ingredient.IngredentException;
+import food.ingredient.Ingredient;
+import food.meal.Meal;
+import food.meal.MealException;
+import food.menu.IMenu;
+import food.menu.Menu;
+import food.menu.MenuException;
+import food.promo.PromotionMenu;
+import user.site.LogInException;
+import user.site.RegistrationException;
+import user.site.Site;
+import user.site.SiteException;
+import user.users.User;
 
 public class Demo {
 	public static void main(String[] args) {
@@ -40,14 +41,41 @@ public class Demo {
 			orizSMorkov.addIngredients(oriz);
 			orizSMorkov.addIngredients(morkov);
 			orizSMorkov.setVegan(true);
+			
+			//desserts
+			Ingredient shokolad = new Ingredient("shokolad", 2.5f);
+			Meal shokoladMeal = new Meal(shokolad.getName());
+			
+			Ingredient vafliNaq = new Ingredient("vafliNaq", 0.5f);
+			Meal vafliMeal = new Meal(vafliNaq.getName());
 
+			
+			//soups
+			Ingredient fide = new Ingredient("fide", 2.3f);
+			Meal supaSFide = new Meal(fide.getName());
+			
+			Ingredient kartofi = new Ingredient("fide", 2.3f);
+			Meal kartofenaSupe = new Meal(kartofi.getName());
+			
 			// adding in menu
+			menu.addMeal("Desert", vafliMeal);
+			menu.addMeal("Desert", shokoladMeal);
+			
 			menu.addMeal("Osnovno", bobSnadenica);
 			menu.addMeal("Osnovno", orizSMorkov);
+			
+			menu.addMeal("Supa", supaSFide);
+			menu.addMeal("Supa", kartofenaSupe);
+			
+		
+//
+//			System.out.println("supi: " + menu.getMealsFromCategory("Supa"));
+//			System.out.println("osnovni: " + menu.sortMealsBy("Osnovno", Creteria.PRICE));
 
-			// System.out.println("supi: " + menu.getMealsFromCategory("Supi"));
-			System.out.println("osnovni: " + menu.sortMealsBy("Osnovno", Creteria.PRICE));
-
+			
+			
+			
+			
 			// site
 			Site site = new Site("bg kitchen", menu);
 			site.registerUser("goshot", "pecataetup", "asma@amsc.com");
@@ -58,11 +86,21 @@ public class Demo {
 			myCart.addMeal(orizSMorkov);
 			myCart.addMeal(bobSnadenica);
 
-			System.out.println("balanca e " + myCart.getBallance());
+			//System.out.println("balanca e " + myCart.getBallance());
 			myCart.removeMeal(bobSnadenica);
 
-			System.out.println("balanca e " + myCart.getBallance());
-			System.out.println(myCart.getMealsToOrder());
+			//System.out.println("balanca e " + myCart.getBallance());
+		//	System.out.println(myCart.getMealsToOrder());
+			
+			
+			
+			site.generateDailyMenu();
+			PromotionMenu menuFirst = site.getPromoMenu();
+			System.out.println(menuFirst);
+			
+			site.generateDailyMenu();
+			PromotionMenu menuSecond = site.getPromoMenu();
+			System.out.println(menuSecond);
 
 		} catch (IngredentException e) {
 			// TODO Auto-generated catch block

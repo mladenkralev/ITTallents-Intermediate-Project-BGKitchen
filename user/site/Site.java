@@ -1,12 +1,12 @@
-package classes.user;
+package user.site;
 
 import java.util.HashMap;
 import java.util.Map;
-import classes.food.*;
-import exceptions.LogInException;
-import exceptions.RegistrationException;
-import exceptions.SiteException;
-import interfaces.IMenu;
+
+import food.*;
+import food.menu.IMenu;
+import food.promo.PromotionMenu;
+import user.users.User;
 
 public class Site {
 	private static final int MINIMUM_LENGTH_FOR_PASSWORD = 6;

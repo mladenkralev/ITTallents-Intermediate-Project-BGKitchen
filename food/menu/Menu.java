@@ -1,4 +1,4 @@
-package classes.food;
+package food.menu;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -7,9 +7,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import classes.comparator.PriceComparator;
-import exceptions.MenuException;
-import interfaces.IMenu;
+import comaparator.PriceComparator;
+import food.creteria.Creteria;
+import food.ingredient.Ingredient;
+import food.meal.Meal;
 
 public class Menu implements IMenu {
 	private Map<String, Set<Meal>> menuList = new HashMap<String, Set<Meal>>();

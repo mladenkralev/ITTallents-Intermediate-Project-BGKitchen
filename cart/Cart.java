@@ -1,14 +1,12 @@
-package classes.cart;
+package cart;
 
 import java.util.Set;
 import java.util.TreeSet;
 
-import classes.comparator.PriceComparator;
-import classes.food.Ingredient;
-import classes.food.Meal;
-import exceptions.CartException;
-import exceptions.IngredentException;
-import interfaces.ICart;
+import comaparator.PriceComparator;
+import food.ingredient.IngredentException;
+import food.ingredient.Ingredient;
+import food.meal.Meal;
 
 public class Cart implements ICart {
 	private float ballance;

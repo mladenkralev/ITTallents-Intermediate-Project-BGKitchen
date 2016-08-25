@@ -1,4 +1,4 @@
-package exceptions;
+package user.site;
 
 public class LogInException extends Exception {
 

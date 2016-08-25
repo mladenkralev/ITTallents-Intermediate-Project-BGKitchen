@@ -1,10 +1,9 @@
-package interfaces;
+package food.menu;
 
 import java.util.Set;
 
-import classes.food.Creteria;
-import classes.food.Meal;
-import exceptions.MenuException;
+import food.creteria.Creteria;
+import food.meal.Meal;
 
 public interface IMenu {
 

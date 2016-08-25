@@ -1,4 +1,4 @@
-package exceptions;
+package cart;
 
 public class CartException extends Exception {
 

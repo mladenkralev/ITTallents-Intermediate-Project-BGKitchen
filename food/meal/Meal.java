@@ -1,11 +1,10 @@
-package classes.food;
+package food.meal;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import exceptions.IngredentException;
-import exceptions.MealException;
-import interfaces.IMeal;
+import food.ingredient.IngredentException;
+import food.ingredient.Ingredient;
 
 public class Meal implements IMeal, Cloneable {
 	private Set<Ingredient> ingredients = new HashSet<Ingredient>();

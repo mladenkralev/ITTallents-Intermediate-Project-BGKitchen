@@ -1,4 +1,4 @@
-package exceptions;
+package food.ingredient;
 
 public class IngredentException extends Exception {
 

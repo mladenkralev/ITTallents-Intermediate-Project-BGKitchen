@@ -1,4 +1,4 @@
-package classes.user;
+package user.users;
 
 public class Admin extends User{
 

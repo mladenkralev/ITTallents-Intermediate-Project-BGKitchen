@@ -1,7 +1,6 @@
-package interfaces;
+package cart;
 
-import classes.food.Meal;
-import exceptions.CartException;
+import food.meal.Meal;
 
 public interface ICart {
 
