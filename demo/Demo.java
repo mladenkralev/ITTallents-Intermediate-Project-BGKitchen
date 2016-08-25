@@ -97,10 +97,16 @@ public class Demo {
 			System.out.println(me.giveMeAllOrders());
 			myCart.addMeal(orizSMorkov);
 			myCart.addMeal(bobSnadenica);
+			
 			me.order();
 			System.out.println(me.giveMeAllOrders());
 			System.out.println(me.getCart().getBallance());
-
+			
+			me.giveMeOrder(0).readyForTravelling();
+			System.out.println(me.giveMeAllOrders());
+			me.giveMeOrder(0).delivered();
+			System.out.println(me.giveMeAllOrders());
+			
 			
 //			
 //			site.generateDailyMenu();

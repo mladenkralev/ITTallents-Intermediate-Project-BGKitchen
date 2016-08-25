@@ -44,8 +44,17 @@ public class User {
 			stringBuffer.append(order);
 			stringBuffer.append("\n");
 		}
-		
+
 		return stringBuffer.toString();
+	}
+
+	public Order giveMeOrder(int id) {
+		for (Order order : allOrdersHistory) {
+			if (order.getId() == id) {
+				return order;
+			}
+		}
+		return null;
 	}
 
 	public String getUserName() {

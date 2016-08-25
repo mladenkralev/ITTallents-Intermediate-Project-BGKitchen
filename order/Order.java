@@ -4,9 +4,12 @@ import java.time.LocalDateTime;
 import cart.ICart;
 
 public class Order implements IOrder {
+	private static int currentId = 0;
 	private ICart cart;
 	private LocalDateTime dateAndHours;
 	private Status status;
+	private int id;
+
 
 	public Order(ICart cart) throws OrderException {
 		if (cart == null) {
@@ -20,6 +23,7 @@ public class Order implements IOrder {
 		this.cart = cart;
 		this.dateAndHours = LocalDateTime.now();
 		this.status = status.ORDERED;
+		this.id = currentId++;
 	}
 
 	/*
@@ -44,6 +48,11 @@ public class Order implements IOrder {
 
 	@Override
 	public String toString() {
-		return "Order [cart=" + cart + ", dateAndHours= " + dateAndHours + ", status=" + status + "]";
+		return "Order [id=" + id + ", cart=" + cart + ", dateAndHours=" + dateAndHours + ", status=" + status + "]";
 	}
+
+	public int getId() {
+		return id;
+	}
+	
 }
