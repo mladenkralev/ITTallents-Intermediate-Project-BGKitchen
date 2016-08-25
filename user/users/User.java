@@ -14,17 +14,34 @@ public class User {
 	private String email;
 	private ICart cart;
 
-	public User(String userName, String password, String email) {
+	public User(String userName, String password, String email) throws PasswordException {
 		this.userName = userName;
 		this.email = email;
-		this.password = password;
-		this.allOrdersHistory = new HashSet<Cart.Order>();
+		this.password = hashPass(password);
 		this.cart = new Cart();
+
 	}
-	//
-	// private String hashPass(String password2) {
-	//
-	// }
+
+	private String hashPass(String password) throws PasswordException {
+
+		MessageDigest md=null;;
+		try {
+			md = MessageDigest.getInstance("MD5");
+
+		} catch (NoSuchAlgorithmException e) {
+			throw new PasswordException("Problem with the password",e);
+		}
+		md.update(password.getBytes());
+
+		byte byteData[] = md.digest();
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < byteData.length; i++) {
+			sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+		}
+		return sb.toString();
+
+	}
 
 	public void order() throws UserException {
 		try {
@@ -63,8 +80,8 @@ public class User {
 		return null;
 	}
 
-	public boolean checkPassword(String password) {
-		if (this.password.equals(password)) {
+	public boolean checkPassword(String password) throws PasswordException {
+		if (this.password.equals(hashPass(password))) {
 			return true;
 		}
 		return false;
@@ -73,11 +90,6 @@ public class User {
 	public ICart getCart() {
 		return cart;
 
-	}
-
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	protected Object clone() throws CloneNotSupportedException {

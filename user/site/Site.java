@@ -31,6 +31,22 @@ public class Site {
 	}
 	
 	
+	public class Admin extends User{
+
+		public Admin(String userName, String password, String email) throws PasswordException {
+			super(userName, password, email);
+		}
+		
+		public void deleteUser(String userName) throws AdminException{
+			if(users.containsKey(userName)){
+				users.remove(userName);
+			}else{
+				throw new AdminException("This user is unknown for our system");
+			}
+		}
+		
+	}
+	
 
 	public void generateDailyMenu() throws SiteException{
 		this.promoMenu = new PromotionMenu(this.menu);
@@ -41,7 +57,11 @@ public class Site {
 			if (isUserNameFree(userName)) {
 				if (password != null && password.trim().length() >= MINIMUM_LENGTH_FOR_PASSWORD) {
 					if (email.matches(PREFIX_FOR_EMAIL_VALIDATION)) {
-						users.put(userName, new User(userName, password, email));
+						try {
+							users.put(userName, new User(userName, password, email));
+						} catch (PasswordException e) {
+							throw new RegistrationException("Unfortunately the registration couldn't be performed");
+						}
 					} else {
 						throw new RegistrationException("Invalid email was entered");
 					}
@@ -59,10 +79,14 @@ public class Site {
 	public User logInUser(String userName, String password) throws LogInException {
 		if (users.containsKey(userName)) {
 			User login = users.get(userName);
-			if (login.checkPassword(password)) {
-				return login;
-			} else {
-				throw new LogInException("Wrong password or username");
+			try {
+				if (login.checkPassword(password)) {
+					return login;
+				} else {
+					throw new LogInException("Wrong password or username");
+				}
+			} catch (PasswordException e) {
+				throw new LogInException("Problem with the login try again");
 			}
 		} else {
 			throw new LogInException("Wrong password or username");
