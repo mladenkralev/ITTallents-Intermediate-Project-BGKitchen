@@ -1,8 +1,7 @@
 package demo;
 
-import cart.Cart;
-import cart.CartException;
-import food.creteria.Creteria;
+import cartAndOrder.Cart;
+import cartAndOrder.CartException;
 import food.ingredient.IngredentException;
 import food.ingredient.Ingredient;
 import food.meal.Meal;
@@ -10,7 +9,6 @@ import food.meal.MealException;
 import food.menu.IMenu;
 import food.menu.Menu;
 import food.menu.MenuException;
-import food.promo.PromotionMenu;
 import user.site.LogInException;
 import user.site.RegistrationException;
 import user.site.Site;

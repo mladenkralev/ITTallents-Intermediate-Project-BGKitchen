@@ -3,13 +3,12 @@ package user.users;
 import java.util.HashSet;
 import java.util.Set;
 
-import cart.Cart;
-import cart.ICart;
-import order.Order;
-import order.OrderException;
+import cartAndOrder.Cart;
+import cartAndOrder.ICart;
+import cartAndOrder.OrderException;
 
 public class User {
-	private Set<Order> allOrdersHistory;
+	private Set<Cart.Order> allOrdersHistory;
 	private String userName;
 	private String password;
 	private String email;
@@ -19,7 +18,7 @@ public class User {
 		this.userName = userName;
 		this.email = email;
 		this.password = password;
-		this.allOrdersHistory = new HashSet<Order>();
+		this.allOrdersHistory = new HashSet<Cart.Order>();
 		this.cart = new Cart();
 	}
 	//
@@ -29,7 +28,7 @@ public class User {
 
 	public void order() throws UserException {
 		try {
-			Order order = this.cart.giveMeOrder();
+			Cart.Order order = this.cart.giveMeOrder();
 			allOrdersHistory.add(order);
 			this.cart.removeAll();
 		} catch (OrderException e) {
@@ -39,7 +38,7 @@ public class User {
 
 	public String giveMeAllOrders() {
 		StringBuffer stringBuffer = new StringBuffer();
-		for (Order order : allOrdersHistory) {
+		for (Cart.Order order : allOrdersHistory) {
 			stringBuffer.append(order);
 			stringBuffer.append("\n");
 		}
@@ -47,8 +46,8 @@ public class User {
 		return stringBuffer.toString();
 	}
 
-	public Order giveMeOrder(int id) {
-		for (Order order : allOrdersHistory) {
+	public Cart.Order giveMeOrder(int id) {
+		for (Cart.Order order : allOrdersHistory) {
 			if (order.getId() == id) {
 				return order;
 			}

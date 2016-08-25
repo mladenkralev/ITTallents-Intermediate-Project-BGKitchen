@@ -8,7 +8,6 @@ import java.util.Set;
 import food.meal.Meal;
 import food.menu.IMenu;
 import food.menu.MenuException;
-import user.site.Site;
 import user.site.SiteException;
 
 public class PromotionMenu {

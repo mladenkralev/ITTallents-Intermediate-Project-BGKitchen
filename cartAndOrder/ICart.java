@@ -1,8 +1,7 @@
-package cart;
+package cartAndOrder;
 
+import food.ingredient.Ingredient;
 import food.meal.Meal;
-import order.Order;
-import order.OrderException;
 
 public interface ICart {
 
@@ -11,12 +10,10 @@ public interface ICart {
 	void removeMeal(Meal meal) throws CartException;
 
 	void removeAll();
-	//
-	// public void addIngridiant(Ingidiant ingridiant){
-	//
-	// }
+
+	void addIngridiant(String name, Ingredient ingridiant) throws CartException;
 
 	float getBallance();
 
-	Order giveMeOrder() throws OrderException;
+	Cart.Order giveMeOrder() throws OrderException;
 }

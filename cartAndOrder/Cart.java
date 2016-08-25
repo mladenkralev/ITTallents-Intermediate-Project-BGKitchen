@@ -1,5 +1,6 @@
-package cart;
+package cartAndOrder;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -7,12 +8,16 @@ import comaparator.PriceComparator;
 import food.ingredient.IngredentException;
 import food.ingredient.Ingredient;
 import food.meal.Meal;
-import order.Order;
-import order.OrderException;
 
 public class Cart implements ICart {
+
+	/*
+	 * This class consists Order class and Status enum
+	 */
+
 	private float ballance;
 	private Set<Meal> melasToOrder = new TreeSet<Meal>(new PriceComparator());
+	private static int currentIdOrders = 0;
 
 	@Override
 	public void addMeal(Meal meal) throws CartException {
@@ -58,10 +63,6 @@ public class Cart implements ICart {
 
 	}
 
-	public Set<Meal> getMealsToOrder() {
-		return melasToOrder;
-	}
-
 	public void addIngridiant(String name, Ingredient ingridiant) throws CartException {
 		for (Meal meal : melasToOrder) {
 			if (meal.getName().equals(name)) {
@@ -75,9 +76,60 @@ public class Cart implements ICart {
 
 	}
 
-
-	public Order giveMeOrder() throws OrderException {
+	@Override
+	public cartAndOrder.Cart.Order giveMeOrder() throws OrderException {
 		return new Order(this);
 	}
-	
+
+	public enum Status {
+		ORDERED, ON_ITS_WAY, DELIVERED
+	}
+
+	public class Order implements IOrder {
+
+		private ICart cart;
+		private LocalDateTime dateAndHours;
+		private Status status;
+		private int id;
+
+		public Order(ICart cart) throws OrderException {
+			if (cart == null) {
+				throw new OrderException("Cant order this, your cart doesnt exist");
+			}
+
+			if (cart.getBallance() <= 0) {
+				throw new OrderException("Your ballance is invalid");
+			}
+
+			this.cart = cart;
+			this.dateAndHours = LocalDateTime.now();
+			this.status = Status.ORDERED;
+			this.id = currentIdOrders++;
+		}
+
+		@Override
+		public void readyForTravelling() {
+			this.status = Status.ON_ITS_WAY;
+		}
+
+		@Override
+		public void delivered() {
+			this.status = Status.DELIVERED;
+		}
+
+		@Override
+		public String toString() {
+			return "Order [id=" + id + ", cart=" + cart + ", dateAndHours=" + dateAndHours + ", status=" + status + "]";
+		}
+
+		public int getId() {
+			return id;
+		}
+	}
+
+	public Set<Meal> getMealsToOrder() {
+		Set<Meal> result = new TreeSet<Meal>(new PriceComparator());
+		result.addAll(melasToOrder);
+		return result;
+	}
 }

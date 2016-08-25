@@ -1,4 +1,4 @@
-package cart;
+package cartAndOrder;
 
 public class CartException extends Exception {
 
