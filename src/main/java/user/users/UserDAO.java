@@ -14,7 +14,6 @@ public class UserDAO {
 
 	public int registerUser(User user) throws UserException{
 		Connection connection = DBConnection.getInstance().getConnection();
-		System.out.println(connection);
 		int id = 0;
 		try {
 			PreparedStatement ps = connection.prepareStatement(REGISTER_USER_TO_DB, Statement.RETURN_GENERATED_KEYS);
