@@ -13,7 +13,8 @@ public class UserDAO {
 	private static final String REGISTER_USER_TO_DB = "INSERT into users VALUES(NULL,?,?)";
 
 	public int registerUser(User user) throws UserException{
-		Connection connection = DBConnection.getConnection();
+		Connection connection = DBConnection.getInstance().getConnection();
+		System.out.println(connection);
 		int id = 0;
 		try {
 			PreparedStatement ps = connection.prepareStatement(REGISTER_USER_TO_DB, Statement.RETURN_GENERATED_KEYS);
@@ -22,6 +23,7 @@ public class UserDAO {
 			ps.executeUpdate();
 			ResultSet rs = ps.getGeneratedKeys();
 			rs.next();
+			System.out.println(id);
 			id = rs.getInt(1);
 		} catch (SQLException e) {
 			throw new UserException("User cannot be registered now, please try again later.", e);
@@ -31,12 +33,15 @@ public class UserDAO {
 			
 	}
 	
-	public void removeUser(User user) throws UserException{
+	public int removeUser(User user) throws UserException{
 		Connection connection = DBConnection.getConnection();
 		try {
 			PreparedStatement ps = connection.prepareStatement(DELETE_USER);
 			ps.setInt(1, user.getId());
-			ps.executeUpdate();
+			return ps.executeUpdate();
+			
+			
+			
 		} catch (SQLException e) {
 			throw new UserException("User cannot be deleted now, please try again later.", e);
 		}
