@@ -15,6 +15,9 @@ public class User {
 	private String password;
 	private String email;
 	private ICart cart;
+	private int id;
+	
+	
 
 	public User(String userName, String password, String email) throws PasswordException {
 		this.userName = userName;
@@ -98,6 +101,18 @@ public class User {
 	protected Object clone() throws CloneNotSupportedException {
 		// TODO Auto-generated method stub
 		return super.clone();
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 }

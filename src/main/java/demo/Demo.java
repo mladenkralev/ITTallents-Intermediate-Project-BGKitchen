@@ -1,7 +1,10 @@
 package demo;
 
+import java.sql.Connection;
+
 import cartAndOrder.Cart;
 import cartAndOrder.CartException;
+import controller.DBConnection;
 import food.ingredient.IngredentException;
 import food.ingredient.Ingredient;
 import food.meal.Meal;
@@ -104,7 +107,7 @@ public class Demo {
 			System.out.println(me.giveMeAllOrders());
 			me.giveMeOrder(0).delivered();
 			System.out.println(me.giveMeAllOrders());
-			
+			Connection c = DBConnection.getInstance().getConnection();
 			
 //			
 //			site.generateDailyMenu();
