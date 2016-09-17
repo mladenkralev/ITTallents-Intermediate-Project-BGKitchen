@@ -1,4 +1,6 @@
-package exceptions;
+package user.users;
+
+
 
 public class PasswordException extends Exception {
 

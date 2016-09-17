@@ -1,5 +1,7 @@
 package user.users;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,7 +10,7 @@ import cartAndOrder.ICart;
 import cartAndOrder.OrderException;
 
 public class User {
-	private Set<Cart.Order> allOrdersHistory;
+	private Set<Cart.Order> allOrdersHistory = new HashSet<Cart.Order>();
 	private String userName;
 	private String password;
 	private String email;
@@ -89,6 +91,7 @@ public class User {
 
 	public ICart getCart() {
 		return cart;
+	}
 
 
 	@Override
