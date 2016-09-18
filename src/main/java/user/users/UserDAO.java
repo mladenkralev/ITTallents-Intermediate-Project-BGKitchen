@@ -32,7 +32,46 @@ public class UserDAO {
 			
 	}
 	
-	public int removeUser(User user) throws UserException{
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public int loginUser(User user) throws UserException {
+		Connection connection = DBConnection.getInstance().getConnection();
+		int id = 0;
+		try {
+			PreparedStatement ps = connection.prepareStatement(LOGIN_USER);
+			ps.setString(1, user.getUserName());
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			id = rs.getInt("idUsers");
+			String pass = rs.getString("password");
+			if (!pass.equals(user.getPassword())) {
+				throw new UserException("Wrong password or username");
+			}
+
+		} catch (SQLException e) {
+			throw new UserException("User cannot be registered now, please try again later.", e);
+		}
+		return id;
+
+	}
+
+public int removeUser(User user) throws UserException{
 		Connection connection = DBConnection.getConnection();
 		try {
 			PreparedStatement ps = connection.prepareStatement(DELETE_USER);
