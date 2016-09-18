@@ -11,7 +11,6 @@ import controller.DBConnection;
 public class UserDAO {
 	private static final String DELETE_USER = "DELETE from users where idUsers = ?;";
 	private static final String REGISTER_USER_TO_DB = "INSERT into users VALUES(NULL,?,?)";
-	private static final String LOGIN_USER = "SELECT idUsers, password FROM users WHERE user_name = ?;";
 
 	public int registerUser(User user) throws UserException{
 		Connection connection = DBConnection.getInstance().getConnection();
@@ -29,7 +28,27 @@ public class UserDAO {
 			throw new UserException("User cannot be registered now, please try again later.", e);
 		}
 		return id;
+		
+			
 	}
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public int loginUser(User user) throws UserException {
 		Connection connection = DBConnection.getInstance().getConnection();

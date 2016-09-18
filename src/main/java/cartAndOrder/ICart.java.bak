@@ -16,6 +16,4 @@ public interface ICart {
 	float getBallance();
 
 	Cart.Order giveMeOrder() throws OrderException;
-	
-	Set<Meal> getMealsToOrder();
 }
