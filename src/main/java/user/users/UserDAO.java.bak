@@ -7,16 +7,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import controller.DBConnection;
-import user.users.*;
 
 public class UserDAO {
 	private static final String DELETE_USER = "DELETE from users where idUsers = ?;";
 	private static final String REGISTER_USER_TO_DB = "INSERT into users VALUES(NULL,?,?)";
-	private static final String LOGIN_USER = "SELECT idUsers, password FROM users WHERE user_name = ?;";
 
 	public int registerUser(User user) throws UserException{
 		Connection connection = DBConnection.getInstance().getConnection();
-		
 		int id = 0;
 		try {
 			PreparedStatement ps = connection.prepareStatement(REGISTER_USER_TO_DB, Statement.RETURN_GENERATED_KEYS);
@@ -31,7 +28,27 @@ public class UserDAO {
 			throw new UserException("User cannot be registered now, please try again later.", e);
 		}
 		return id;
+		
+			
 	}
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public int loginUser(User user) throws UserException {
 		Connection connection = DBConnection.getInstance().getConnection();
