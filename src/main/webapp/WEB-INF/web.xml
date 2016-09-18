@@ -3,5 +3,16 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>Archetype Created Web Application</display-name>
+
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>servlets.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/reg/*</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>
