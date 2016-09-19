@@ -11,12 +11,15 @@ public class Meal implements IMeal, Cloneable {
 	private String name;
 	private float price;
 	private boolean isVegan;
-
-	public Meal(String name) throws MealException {
-		if ((name == null) || (name.trim().equals("")) || (name.matches(".*\\d.*"))) {
+	private String picturePath;
+	
+	public Meal(String name, boolean isVegan , String picturePath) throws MealException {
+		if ((name == null) || (name.trim().equals("")) ||(picturePath == null) || (picturePath.trim().equals("")) || (name.matches(".*\\d.*"))) {
 			throw new MealException("Ne moga da suzdam takova bludo s tezi dani");
 		}
 		this.name = name;
+		this.picturePath=picturePath;
+		this.isVegan=isVegan;
 	}
 
 	/*
@@ -67,6 +70,10 @@ public class Meal implements IMeal, Cloneable {
 	public String toString() {
 		return "Meal [name=" + name + ", ingredients=" + ingredients + ", price=" + price + ", isVegan=" + isVegan
 				+ "]";
+	}
+
+	public String getPath() {
+		return picturePath;
 	}
 
 }
