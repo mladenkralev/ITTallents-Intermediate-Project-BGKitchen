@@ -7,18 +7,18 @@ public class DBConnection {
 	private static Connection connection;
 	private static DBConnection theChosenOneDBConnection;
 //	
-//	private static final String DB_HOSTNAME = "localhost";
-//	private static final String DB_PORT = "3306";
-//	private static final String DATABASE = "new_schema";
-//	private static final String DB_USER = "root";
-//	private static final String DB_PASSWORD = "parolata";
-	
-
 	private static final String DB_HOSTNAME = "localhost";
 	private static final String DB_PORT = "3306";
-	private static final String DATABASE = "mydb";
+	private static final String DATABASE = "new_schema";
 	private static final String DB_USER = "root";
-	private static final String DB_PASSWORD = "pecataetup";
+	private static final String DB_PASSWORD = "parolata";
+	
+//
+//	private static final String DB_HOSTNAME = "localhost";
+//	private static final String DB_PORT = "3306";
+//	private static final String DATABASE = "mydb";
+//	private static final String DB_USER = "root";
+//	private static final String DB_PASSWORD = "pecataetup";
 	
 	private DBConnection() {
 		try {

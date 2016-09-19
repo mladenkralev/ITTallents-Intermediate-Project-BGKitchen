@@ -9,12 +9,9 @@
 
 <body>
 	<ul>
-		<li><a href="index.html">Начало</a></li>
+		<li><a href=".">Начало</a></li>
 		<li><a href="#news">Меню</a></li>
 		<li><a href="#contact">Contact</a></li>
-		<li><a href="Cart1.aspx" class="icon-shopping-cart"
-			style="font-size: 25px"><asp:Label ID="lblCartCount"
-					runat="server" CssClass="badge badge-warning" ForeColor="White" /></a></li>
 	</ul>
 </body>
 </html>

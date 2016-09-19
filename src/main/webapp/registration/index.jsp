@@ -2,13 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="../menu/css/main.css" />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript">
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 </script>
@@ -21,10 +23,11 @@
 <body>
 	<form>
 		<ul id="header">
-			<li><a href="../">HOME</a></li>
-			<li><a href="#">ABOUT US</a></li>
-			<li><a href="#">TEST</a></li>
-			<li><a href="#">TEST</a></li>
+			<li><a href="../">Начало</a></li>
+			<li><a href="#">За нас</a></li>
+			<li style="float: right"><a class="active" href="."">Регистрирай
+					се</a></li>
+			<li style="float: right"><a class="active" href="../login/">Вход</a></li>
 		</ul>
 	</form>
 	<div class="main">
