@@ -12,7 +12,7 @@
 			<li><a href=".">HOME</a></li>
 			<li><a href="#">ABOUT US</a></li>
 			<li style="float:right"><a class="active" href="registration/"">Регистрирай се</a></li>
-			<li style="float:right"><a class="active" href="login/index.html">Вход</a></li>
+			<li style="float:right"><a class="active" href="login/">Вход</a></li>
 		</ul>
 	</form>
 	
