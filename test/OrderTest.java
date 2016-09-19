@@ -25,9 +25,9 @@ public class OrderTest {
 		
 		testUser.setId(id2);
 		
-		Meal meal1 = new Meal("Bob s nadenica");
+		Meal meal1 = new Meal("Bob s nadenica", false, "asd.jpg");
 		meal1.setVegan(false);
-		Meal meal2 = new Meal("Pile s oriz");
+		Meal meal2 = new Meal("Pile s oriz", false, "asd.jpg");
 		meal2.setVegan(false);
 		meal2.addIngredients(new Ingredient("Oriz", 25f));
 		

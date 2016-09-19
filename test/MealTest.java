@@ -10,7 +10,7 @@ public class MealTest {
 
 	@Test
 	public void test() throws MealException {
-		Meal meal = new Meal("Nadenicata");
+		Meal meal = new Meal("Nadenicata", false, "asd.jpg");
 		meal.setVegan(false);
 		
 		int id = new MealDAO().addMeal(meal);

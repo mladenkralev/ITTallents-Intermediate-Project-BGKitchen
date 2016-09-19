@@ -20,19 +20,30 @@
 		</ul>
 	</form>
 
-	<div class = "table" >
-			<%
-				TreeSet<Meal> result = new MealDAO().getMeals();
-				for (Meal meal : result) {
-					
-			%>
-				
-			<img id = "first" src = "<%= meal.getPath()%>"/>
-			<p  style="display:inline"><%=meal.getName()%></p>
-			<%
-				}
-			%>
+	<div class="table">
+		<form action="" method="get">
+			<table>
+				<%
+					TreeSet<Meal> result = new MealDAO().getMeals();
+					for (Meal meal : result) {
+				%>
+				<tr>
+					<td><p style="display: inline"><%=meal.getName()%></p></td>
+				</tr>
+				<tr>
+					<td><img id="first" src="<%=meal.getPath()%>" /></td>
+					<td><button name="order" type="submit" value="<%meal.getName();%>">Order</button></td>
+				</tr>
+
+
+				<%
+					}
+				%>
+
+			</table>
+		</form>
 	</div>
+
 
 </body>
 </html>
