@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import user.users.PasswordException;
+import user.users.User;
+import user.users.UserDAO;
+import user.users.UserException;
+
 public class RegisterServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 176634172L;
@@ -20,7 +25,19 @@ public class RegisterServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.sendRedirect(req.getContextPath() + "/index.html");
+		String name = req.getParameter("name").toString();
+		String password = req.getParameter("password").toString();
+		String email = req.getParameter("email").toString();
+		try {
+			new UserDAO().registerUser(new User(name, password, email));
+		} catch (UserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PasswordException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		resp.sendRedirect(req.getContextPath() + "/index.jsp");
 
 	}
 

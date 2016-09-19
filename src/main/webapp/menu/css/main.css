@@ -1,40 +1,37 @@
-body {
-    background-image: url("../img/bg_image.jpg");
-	background-size: cover;
+html { 
+  background: url("../img/bg_image.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
-h1 {
-    color: maroon;
-    margin-left: 40px;
-} 
 
 li {
-	display: inline;
-	margin: 10px;
-	color: white;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-
-#header {
-	background-color: #333; 
-	padding: 14px 16px;
-	margin:0 auto;
-}
-
- 
-#header a {
-	color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#header a:hover:not(.active) {
+li a:hover:not(.active) {
     background-color: #111;
 }
 
 .active {
     background-color: #4CAF50;
 }
+
+
