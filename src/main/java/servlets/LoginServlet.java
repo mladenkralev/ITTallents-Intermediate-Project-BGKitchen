@@ -41,6 +41,9 @@ public class LoginServlet extends HttpServlet {
 		} catch (PasswordException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (UserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		int id = 0;
 		try {

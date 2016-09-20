@@ -8,6 +8,7 @@ import food.promo.PromotionMenu;
 import user.users.AdminException;
 import user.users.PasswordException;
 import user.users.User;
+import user.users.UserException;
 
 public class Site {
 	private static final int MINIMUM_LENGTH_FOR_PASSWORD = 6;
@@ -34,7 +35,7 @@ public class Site {
 	
 	public class Admin extends User{
 
-		public Admin(String userName, String password, String email) throws PasswordException {
+		public Admin(String userName, String password, String email) throws PasswordException, UserException {
 			super(userName, password, email);
 		}
 		
@@ -62,6 +63,9 @@ public class Site {
 							users.put(userName, new User(userName, password, email));
 						} catch (PasswordException e) {
 							throw new RegistrationException("Unfortunately the registration couldn't be performed");
+						} catch (UserException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
 						}
 					} else {
 						throw new RegistrationException("Invalid email was entered");

@@ -3,9 +3,10 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
 	<display-name>Archetype Created Web Application</display-name>
 
-<servlet>
+	<servlet>
 		<servlet-name>RegisterServlet</servlet-name>
 		<servlet-class>servlets.RegisterServlet</servlet-class>
 	</servlet>
@@ -15,6 +16,32 @@
 		<description></description>
 		<servlet-class>servlets.LoginServlet</servlet-class>
 	</servlet>
+
+	<servlet>
+		<servlet-name>OrderHomePageServlet</servlet-name>
+		<servlet-class>servlets.OrderHomePageServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>OrderRegPageSerrvlet</servlet-name>
+		<servlet-class>servlets.OrderRegPageSerrvlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>OrderHomePageServlet</servlet-name>
+		<url-pattern>/reddirectLogin/*</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>OrderRegPageSerrvlet</servlet-name>
+		<url-pattern>/order/*</url-pattern>
+	</servlet-mapping>
+
+
+
 	<servlet-mapping>
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/reg/*</url-pattern>
