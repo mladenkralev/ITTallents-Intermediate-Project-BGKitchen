@@ -60,7 +60,12 @@ public class Site {
 				if (password != null && password.trim().length() >= MINIMUM_LENGTH_FOR_PASSWORD) {
 					if (email.matches(PREFIX_FOR_EMAIL_VALIDATION)) {
 						try {
-							users.put(userName, new User(userName, password, email));
+							try {
+								users.put(userName, new User(userName, password, email));
+							} catch (UserException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						} catch (PasswordException e) {
 							throw new RegistrationException("Unfortunately the registration couldn't be performed");
 						} catch (UserException e) {

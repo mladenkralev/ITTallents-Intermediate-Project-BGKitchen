@@ -14,8 +14,7 @@
 <body>
 	<ul>
 		<li><a href=".">Начало</a></li>
-		<li><a href="#news">Меню</a></li>
-		<li><a href="#contact">Contact</a></li>
+		<li><a href="#news">За нас</a></li>
 	</ul>
 
 

@@ -76,4 +76,8 @@ public class Meal implements IMeal, Cloneable {
 		return picturePath;
 	}
 
+	public Set<Ingredient> getIngredients() {
+		return this.ingredients;
+	}
+
 }
