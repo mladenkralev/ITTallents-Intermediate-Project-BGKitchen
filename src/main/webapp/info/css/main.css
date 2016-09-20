@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+html {
+	background: url("../img/bg_image.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-size: 100px;
+}
+
+table {
+	background: url("../img/test.png") center center fixed;
+	background-color: #B6B6B4;
+	border: 3px solid green;
+	margin: 0 auto;
+	width: 500px;
+	padding: 25px;
+}
+
+img {
+	border: 1px solid black;
+	background-color: #333;
+	padding: 5px;
+	margin: 1px;
+	height: 300px;
+	width: 200px;
+}

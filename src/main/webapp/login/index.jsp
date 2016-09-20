@@ -16,7 +16,7 @@
 <body>
 	<ul>
 		<li><a href="../">Начало</a></li>
-		<li><a href="#news">За нас</a></li>
+		<li><a href="../info/">За нас</a></li>
 		<li style="float: right"><a class="active"
 			href="../registration/">Регистрирай се</a></li>
 		<li style="float: right"><a class="active" href=".">Вход</a></li>
