@@ -34,7 +34,7 @@ public class Site {
 	
 	public class Admin extends User{
 
-		public Admin(String userName, String password, String email) throws PasswordException, UserException {
+		public Admin(String userName, String password, String email) throws PasswordException {
 			super(userName, password, email);
 		}
 		
@@ -59,12 +59,7 @@ public class Site {
 				if (password != null && password.trim().length() >= MINIMUM_LENGTH_FOR_PASSWORD) {
 					if (email.matches(PREFIX_FOR_EMAIL_VALIDATION)) {
 						try {
-							try {
-								users.put(userName, new User(userName, password, email));
-							} catch (UserException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+							users.put(userName, new User(userName, password, email));
 						} catch (PasswordException e) {
 							throw new RegistrationException("Unfortunately the registration couldn't be performed");
 						}
