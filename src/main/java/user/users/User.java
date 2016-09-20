@@ -19,7 +19,10 @@ public class User {
 	
 	
 
-	public User(String userName, String password, String email) throws PasswordException {
+	public User(String userName, String password, String email) throws PasswordException, UserException {
+		if(!validateString(email)||!validateString(password)||!validateString(userName)){
+			throw new UserException("Wrong password or username");
+		}
 		this.userName = userName;
 		this.email = email;
 		this.password = hashPass(password);
@@ -115,4 +118,10 @@ public class User {
 		return password;
 	}
 
+	private boolean validateString(String string){
+		if(string==null || string.trim().length()==0){
+			return false;
+		}
+		return true;
+	}
 }
